@@ -1,0 +1,13 @@
+* woot
+Web of Organized Trust (WOOT!) Saves checksums of files on the net. Feel welcome to add URLS with digests.
+
+| <10>       | <10>       | <10>       |
+| comment    | digest     | url        |
+|------------+------------+------------|
+| brother printer installer | f6650a03f31da0ee7430cc6bde1a2d277fdce34b3d877d09843f5698df7d988b549bbe1d1801b723de997da28d52559b754c9313db76824a8785813b5746a918 | https://download.brother.com/welcome/dlf006893/linux-brprinter-installer-2.2.1-1.gz |
+
+** Code to recreate table (just add |---...| line)
+#+BEGIN_SRC python
+data = pd.DataFrame(json.load(open("woot.json"))
+print("|" + data.to_csv(sep="|", line_terminator="|\n|", index=False)[:-2])
+#+END_SRC
